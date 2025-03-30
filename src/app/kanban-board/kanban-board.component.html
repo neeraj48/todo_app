@@ -1,0 +1,41 @@
+<div class="board">
+  <div class="lane" *ngFor="let lane of lanes">
+    <div class="lane-header">
+      {{ lane.title }}
+      <span>({{ getTodosByStatus(lane.status).length }})</span>
+    </div>
+    <div
+      cdkDropList
+      [id]="lane.status"
+      [cdkDropListData]="getTodosByStatus(lane.status)"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListConnectedTo]="getConnectedLists()"
+      class="todo-list"
+    >
+      <div
+        class="todo-card"
+        *ngFor="let todo of getTodosByStatus(lane.status)"
+        cdkDrag
+        [cdkDragData]="todo"
+      >
+        <div>{{ todo.todo }}</div>
+        <div class="todo-actions">
+          <button mat-icon-button color="primary" (click)="editTodo(todo)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTodo(todo)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button
+  mat-fab
+  color="primary"
+  style="position: fixed; bottom: 24px; right: 24px"
+  (click)="addTodo()"
+>
+  <mat-icon>add</mat-icon>
+</button>

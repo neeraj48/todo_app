@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+
+/* Add application styles & imports to this file! */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: '#f8f9fa';
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  min-height: calc(100vh - 40px);
+}
+
+.lane {
+  background: #ebecf0;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.lane-header {
+  padding: 10px;
+  font-weight: bold;
+  color: #172b4d;
+}
+
+.todo-card {
+  background: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  cursor: move;
+}
+
+.todo-card:hover {
+  background: #f8f9fa;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.error-snackbar {
+  background: #f44336;
+  color: white;
+}
+
+.success-snackbar {
+  background: #4caf50;
+  color: white;
+}

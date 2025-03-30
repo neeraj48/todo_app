@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ data ? "Edit Todo" : "Add Todo" }}</h2>
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill" style="width: 100%">
+      <mat-label>Todo</mat-label>
+      <input matInput formControlName="todo" placeholder="Enter todo" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!todoForm.valid"
+    >
+      {{ data ? "Update" : "Add" }}
+    </button>
+  </mat-dialog-actions>
+</form>
