@@ -1,0 +1,6 @@
+{
+  "routes": [
+    "/kanban-board",
+    "/not-found"
+  ]
+}
